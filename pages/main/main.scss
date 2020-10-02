@@ -1,7 +1,6 @@
 $color-primary-color: #F1CDB3;
 $color-primary-light: #FDDCC4;
 
-
 $color-light-s: #FAFAFA;
 $color-light-l: #F6F6F6;
 $color-light-xl: #FFFFFF;
@@ -12,6 +11,97 @@ $color-dark-l: #545454;
 $color-dark-xl: #4C4C4C;
 $color-dark-2xl: #444444;
 $color-dark-3xl: #292929;
+
+$start-screen-gradient-background: url(/assets/images/noise_transparent@2x.png), 
+radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), 
+#211F20;
+
+$footer-gradient-background: url(/assets/images/noise_transparent@2x.png), 
+radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%),
+#211F20;
+
+@mixin h2 {
+    font: {
+        family: Georgia;
+        size: 44px;
+        weight: normal;
+    }
+    line-height: 130%;
+}
+
+@mixin h3 {
+    font: {
+        family: Georgia;
+        size: 35px;
+        weight: normal;
+        style: normal;
+    }
+    line-height: 130%;
+    letter-spacing: 0.06rem;
+}
+
+@mixin h4 {
+    font: {
+        family: Georgia;
+        size: 20px;
+        weight: normal;
+        style: normal;
+    }
+    line-height: 115%;
+    letter-spacing: 0.06rem;
+}
+
+@mixin h5 {
+    font: {
+        family: Georgia;
+        size: 15px;
+        weight: normal;
+        style: normal;
+    }
+    line-height: 110%;
+    letter-spacing: 0.06rem;
+}
+
+@mixin paragraph-l {
+    font: {
+        family: Arial;
+        size: 15px;
+        style: normal;
+        weight: normal;
+    }
+    line-height: 160%;
+}
+
+@mixin paragraph-s {
+    font: {
+        family: Arial;
+        size: 12px;
+        style: italic;
+        weight: normal;
+    }
+    line-height: 150%;
+}
+
+@mixin logo-title {
+    font: {
+        family: Georgia;
+        size: 32px;
+        style: normal;
+        weight: normal;
+    }
+    line-height: 110%;
+    letter-spacing: 0.12rem;
+}
+
+@mixin logo_subtitle {
+    font: {
+        family: Arial;
+        size: 13px;
+        style: normal;
+        weight: normal;
+    }
+    letter-spacing: 0.08rem;
+}
 
 :root {
     font-size: 16px;
@@ -28,84 +118,74 @@ $color-dark-3xl: #292929;
 
 .wrapper {
     display: flex;
+    margin: 0 auto;
+    flex: 1;
     justify-content: space-between;
     max-width: 1200px;  
-    margin: 0 auto;
-}
-
-body {
-    position: relative;
 }
 
 .header {
     width: 100vw;
+    max-width: 100%;
     position: absolute;
     top: 60px;
-    margin-left: -10px;
 }
 
 .logo {
     display: flex;
     flex-direction: column;
-}
 
-.logo_title {
-    font-family: Georgia;
-    font-size: 32px;
-    font-weight: 400px;
-    line-height: 110%;
-    letter-spacing: 0.12rem;
-    color: $color-primary-color;
-}
+    &_title {
+        color: $color-primary-color;
+        @include logo-title;
+    }
 
-.logo_subtitle {
-    margin-top: 9px;
-    font-family: Georgia;
-    font-size: 13px;
-    font-weight: 400px;
-    line-height: 160%;
-    letter-spacing: 0.08rem;
-    text-align: center;
-    color: $color-light-xl;
+    &_subtitle {
+        margin-top: 10px;
+        text-align: center;
+        color: $color-light-xl;
+        @include logo_subtitle;
+    }
 }
 
 .navbar {
-    margin-top: -6px;
+    
     width: 443px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     justify-content: center;
-}
 
-.navbar ul {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    list-style-type: none;
-}
+    & ul {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        list-style-type: none;
+    }
 
-.navbar ul li a {
-    font-family: Arial;
-    font-size: 15px;
-    font-weight: 400px;
-    text-decoration: none;
-    color: $color-dark-s;
-}
+    & ul li a {
+        text-decoration: none;
+        color: $color-dark-s;
+        @include paragraph-l;
+    }
+    
+    & ul li:first-child{
+        border-bottom: 3px $color-primary-color solid;
+        color: $color-light-xl;
+    }
+    
+    & ul li:first-child a:first-child {
+        color: $color-light-xl;
+    }
 
-.navbar ul li a:active {
-    border-bottom: 3px $color-primary-color solid;
-}
-
-.navbar ul li:first-child a:first-child {
-    border-bottom: 3px $color-primary-color solid;
-    color: $color-light-xl;
-}
-
-.navbar ul li:hover a:hover {
-    cursor: pointer;
-    border-bottom: 3px $color-primary-color solid;
-    color: $color-light-xl;
+    & ul li:hover {
+        border-bottom: 3px $color-primary-color solid;
+    }
+    
+    & ul li:hover a:hover{
+        cursor: pointer;
+        color: $color-light-xl;
+    }
 }
 
 .main {
@@ -116,43 +196,121 @@ body {
 .hero {
     display: flex;
     padding-top: 180px;
-    background: url(/assets/images/noise_transparent@2x.png), 
-    radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), 
-    #211F20;
-}
+    background: $start-screen-gradient-background;
 
-.hero_content {
-    display: flex;
+    &_content {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &_image-wrapper {
+        display: flex;
+    }
+
+    &_image {
+        width: 100%;
+    }
 }
 
 .content-section {
-    padding-bottom: 79px;
+    padding-bottom: 80px;
+    max-width: 460px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    &_title {
+        color: $color-light-xl;
+        max-width: 310px;
+        @include h2;
+    }
+    
+    &_subtitle {
+        margin-top: 42px;
+        line-height: 160%;
+        color: $color-dark-s;
+        @include paragraph-l;
+    }
+    
+    &_button {
+        padding: 15px 45px;
+        margin-top: 42px;
+        font-size: 17px;
+        max-width: 207px;
+        background-color: $color-primary-color;
+        border-radius: 100px;
+        line-height: 130%;
+        letter-spacing: 0.06rem;
+        border: none;
+    }
 }
 
-.content-section_title {
-    font-family: Georgia;
-    font-size: 44px;
-    font-weight: 400px;
-    line-height: 130%;
-    color: $color-light-xl;
-    max-width: 310px;
+.about {
+    display: flex;
+
+    &_wrapper{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 80px 175px 10px 175px;
+    }
+
+    & .wrapper {
+        justify-content: center;
+    }
+
+    &_image-wrapper {
+        display: flex;
+    }
+
+    &_image {
+        width: 100%;
+    }
+
+    &_content {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        max-width: 430px;
+    }
+
+    &_title {
+        span {
+            display: block;
+            letter-spacing: 0.13rem;
+        }
+
+        color: $color-dark-l;
+        @include h3;
+    }
+
+    &_description {
+        margin-top: 25px;
+        p {
+            &:nth-child(2) {
+                margin-top: 25px;
+            }
+            color: $color-dark-xl;
+            @include paragraph-l;
+        }
+    }
 }
 
-.content-section_subtitle {
-    margin-top: 42px;
-    font-family: Arial;
-    line-height: 160%;
-    color: $color-dark-s;
+
+
+@media screen and (max-width: 1280px) {
+    .wrapper {
+        padding: 0.4rem;
+    }
 }
 
-.content-section_button {
-    padding: 15px 45px;
-    margin-top: 42px;
-    width: 207px;
-    background-color: $color-primary-color;
-    border-radius: 100px;
-    border: none;
+@media screen and (max-width: 1100px) {
+    .hero_content {
+        flex-direction: column;
+    }
+
+    .hero_content {
+        align-items: center;
+    }
 }
