@@ -20,6 +20,8 @@ $footer-gradient-background: url(/assets/images/noise_transparent@2x.png),
 radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%),
 #211F20;
 
+$card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+
 @mixin h2 {
     font: {
         family: Georgia;
@@ -37,7 +39,7 @@ radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%),
         style: normal;
     }
     line-height: 130%;
-    letter-spacing: 0.06rem;
+    letter-spacing: 0.13125rem;
 }
 
 @mixin h4 {
@@ -48,7 +50,7 @@ radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%),
         style: normal;
     }
     line-height: 115%;
-    letter-spacing: 0.06rem;
+    letter-spacing: 0.075rem;
 }
 
 @mixin h5 {
@@ -59,7 +61,7 @@ radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%),
         style: normal;
     }
     line-height: 110%;
-    letter-spacing: 0.06rem;
+    letter-spacing: 0.05625rem;
 }
 
 @mixin paragraph-l {
@@ -100,8 +102,65 @@ radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%),
         style: normal;
         weight: normal;
     }
-    letter-spacing: 0.08rem;
+    letter-spacing: 0.08125rem;
 }
+
+@mixin slider_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow:inset 0 0 0 2px $color-primary-color;
+    border-radius: 100%;
+    transition-duration: 0.5s;
+    width: 52px;
+    height: 52px;
+    padding: 10px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    
+    &:hover {
+        box-shadow: none;
+        background-color: $color-primary-light;
+    }
+}
+
+@mixin button() {
+    font-family: Georgia;
+    padding: 15px 45px;
+    font-size: 17px;
+    border-radius: 100px;
+    line-height: 130%;
+    letter-spacing: 0.06375rem;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition-duration: 0.5s;
+}
+
+@mixin button_primary() {
+    background-color: $color-primary-color;
+
+    &:hover {
+        background-color: $color-primary-light;
+    }
+
+    @include button;
+}
+
+@mixin button_secondary() {
+    background-color: transparent;
+    box-shadow:inset 0 0 0 2px $color-primary-color;
+
+    &:hover {
+        box-shadow: none;
+        background-color: $color-primary-light;
+    }
+    
+    @include button;
+}
+
 
 :root {
     font-size: 16px;
@@ -223,26 +282,20 @@ radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%),
     &_title {
         color: $color-light-xl;
         max-width: 310px;
-        @include h2;
+        @include h2();
     }
     
     &_subtitle {
         margin-top: 42px;
         line-height: 160%;
         color: $color-dark-s;
-        @include paragraph-l;
+        @include paragraph-l();
     }
     
     &_button {
-        padding: 15px 45px;
-        margin-top: 42px;
-        font-size: 17px;
-        max-width: 207px;
-        background-color: $color-primary-color;
-        border-radius: 100px;
-        line-height: 130%;
-        letter-spacing: 0.06rem;
-        border: none;
+        margin-top: 40px;
+        max-width: 208px;
+        @include button_primary();
     }
 }
 
@@ -278,26 +331,103 @@ radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%),
     &_title {
         span {
             display: block;
-            letter-spacing: 0.13rem;
         }
 
         color: $color-dark-l;
-        @include h3;
+        @include h3();
     }
 
     &_description {
         margin-top: 25px;
         p {
-            &:nth-child(2) {
+            & + p {
                 margin-top: 25px;
             }
             color: $color-dark-xl;
-            @include paragraph-l;
+            @include paragraph-l();
         }
     }
 }
 
+.pets {
+    padding-top: 170px;
+    padding-bottom: 100px;
 
+    &_wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &_title {
+        span {
+            display: block;
+        }
+        max-width: 400px;
+        text-align: center;
+        color: $color-dark-l;
+        @include h3();
+    }
+
+    &_content {
+        display: flex;
+        align-items: center;
+
+        .pets_cards {
+            display: flex;
+            padding: 60px 8px;
+        }
+
+        .pets_card {
+            display: flex;
+            flex-direction: column;
+            border-radius: 9px;
+            margin: 0 45px;
+
+            &:hover {
+                box-shadow: $card-hover;
+            }
+
+            &-image {
+                width: 100%;
+            }
+
+            &-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-bottom: 30px;
+            }
+
+            &-title {
+                margin: 30px 0;
+                text-align: center;
+                color: $color-dark-l;
+                @include h4();
+            }
+
+            &-button {
+                @include button_secondary();
+                color: $color-dark-3xl;
+            }
+        }
+
+        .slider_button {
+            @include slider_button();
+        }
+
+        .slider_button_reverted {
+            transform: rotate(180deg);
+            @include slider_button();
+        }
+    }
+
+    &_button {
+        letter-spacing: 0.06rem;
+        @include button_primary();
+    }
+}
 
 @media screen and (max-width: 1280px) {
     .wrapper {

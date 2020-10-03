@@ -7,6 +7,13 @@
     <link href="/pages/main/main.css" rel="stylesheet">
     <script src="/pages/main/main.js" defer></script>
     <title>Shelter</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/static/favicon-16x16.png">
+    <link rel="manifest" href="/assets/static/site.webmanifest">
+    <link rel="mask-icon" href="/assets/static/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 </head>
 <body>
     <header class="header">
@@ -63,20 +70,25 @@
                         >
                     </div>
                     <div class="about_content">
-                        <div class="about_title">
+                        <h3 class="about_title">
                             <span>
                                 About the shelter
                             </span>
                             <span>
                                 “Cozy House”
                             </span>
-                        </div>
+                        </h3>
                         <div class="about_description">
                             <p>
-                                Currently we have 121 dogs and 342 cats on our hands and statistics show that only 20% of them will find a family. The others will continue to live with us and will be waiting for a lucky chance to become dearly loved.
+                                Currently we have 121 dogs and 342 cats on our hands and statistics show that only 20% of them will find 
+                                a family. The others will continue to live with us and will be waiting for a lucky chance to become dearly 
+                                loved.
                             </p>
                             <p>
-                                We feed our wards with the best food and make sure that they do not get sick, feel comfortable (including psychologically) and well. We are supported by 87 volunteers and 28 employees of various skill levels. About 12% of the animals are taken by the shelter staff. Taking care of the animals, they become attached to the pets and would hardly ever leave them alone.
+                                We feed our wards with the best food and make sure that they do not get sick, feel comfortable (including 
+                                psychologically) and well. We are supported by 87 volunteers and 28 employees of various skill levels. About 
+                                12% of the animals are taken by the shelter staff. Taking care of the animals, they become attached to the pets 
+                                and would hardly ever leave them alone.
                             </p>
                         </div>
                     </div>
@@ -84,7 +96,68 @@
             </div>
         </section>
 
-        
+        <section class="pets">
+            <div class="wrapper">
+                <div class="pets_wrapper">
+                    <h3 class="pets_title">
+                        <span>
+                            Our friends who
+                        </span> 
+                        <span>
+                            are looking for a house
+                        </span>
+                    </h3>
+                    <div class="pets_content">
+                        <button class="slider_button">
+                            <img 
+                                class="pets_slider-icon"
+                                src="/assets/icons/arrow.svg" 
+                                alt="left arrow" 
+                            >
+                        </button>
+                        <div class="pets_cards">
+                            <div class="pets_card">
+                                <img src="/assets/images/pets-katrine.png" alt="Pets Katrine" class="pets_card-image">
+                                <div class="pets_card-content">
+                                    <h4 class="pets_card-title">
+                                        Katrine
+                                    </h4>
+                                    <button class="pets_card-button">Learn more</button>
+                                </div>
+                            </div>
+
+                            <div class="pets_card">
+                                <img src="/assets/images/pets-jennifer.png" alt="Pets Jennifer" class="pets_card-image">
+                                <div class="pets_card-content">
+                                    <h4 class="pets_card-title">
+                                        Jennifer
+                                    </h4>
+                                    <button class="pets_card-button">Learn more</button>
+                                </div>
+                            </div>
+
+                            <div class="pets_card">
+                                <img src="/assets/images/pets-woody.png" alt="Pets Woody" class="pets_card-image">
+                                <div class="pets_card-content">
+                                    <h4 class="pets_card-title">
+                                        Woody
+                                    </h4>
+                                    <button class="pets_card-button">Learn more</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="slider_button_reverted">
+                            <img 
+                                class="pets_slider-icon"
+                                src="/assets/icons/arrow.svg" 
+                                alt="right arrow" 
+                            >
+                        </button>
+                    </div>
+                    <button class="pets_button">Get to know the rest</button>
+                </div>
+            </div>
+        </section>
     </main>
 </body>
 </html>
