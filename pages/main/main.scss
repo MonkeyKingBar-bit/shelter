@@ -306,7 +306,7 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
         display: flex;
         justify-content: space-between;
         width: 100%;
-        padding: 80px 175px 10px 175px;
+        padding: 80px 175px 100px 175px;
     }
 
     & .wrapper {
@@ -350,8 +350,9 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
 }
 
 .pets {
-    padding-top: 170px;
+    padding-top: 80px;
     padding-bottom: 100px;
+    background-color: $color-light-l;
 
     &_wrapper {
         width: 100%;
@@ -426,6 +427,192 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
     &_button {
         letter-spacing: 0.06rem;
         @include button_primary();
+    }
+}
+
+.help {
+    padding-top: 80px;
+    padding-left: 3px;
+    padding-bottom: 46px;
+
+    &_wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &_title {
+        span {
+            display: block;
+        }
+        max-width: 400px;
+        text-align: center;
+        color: $color-dark-l;
+        @include h3();
+    }
+
+    &_content {
+        display: flex;
+        
+
+        .help_cards {
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 60px;
+        }
+
+        .help_card {
+            display: flex;
+            flex-direction: column;
+            margin: 0 60px;
+            margin-bottom: 24px;
+        }
+
+        .help_card-title {
+            margin: 30px 0;
+            text-align: center;
+            color: $color-dark-l;
+            @include h4();
+        }
+    }
+}
+
+.donation {
+    display: flex;
+    background-color: $color-light-l;
+
+    &_wrapper{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 80px 142px 98px 142px; 
+    }
+
+    & .wrapper {
+        justify-content: center;
+    }
+
+    &_image-wrapper {
+        display: flex;
+        margin: 13px 0;
+    }
+
+    &_image {
+        width: 100%;
+    }
+
+    &_content {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        max-width: 380px;
+    }
+
+    &_title {
+        span {
+            display: block;
+        }
+
+        color: $color-dark-l;
+        @include h3();
+        margin-bottom: 20px;
+    }
+
+    &_description {
+        @include h5();
+        color: $color-dark-l;
+        margin-bottom: 20px;
+    }
+
+    &_link {
+        display: flex;
+        padding: 10px 0px 10px 15px;
+        @include h4();
+        color: $color-dark-l;
+        text-decoration: none;
+        border-radius: 9px;
+        background-color: $color-primary-color;
+        transition-duration: 0.5s;
+        max-width: 348px;
+     
+        & img {
+            padding-right: 14px;
+        }
+    }
+
+    &_link:hover {
+        background-color: $color-primary-light;
+        
+    }
+
+    &_information {
+        margin-top: 20px;
+        color: $color-dark-m;
+        line-height: 112.5%;
+        font-weight: 400px;
+        @include paragraph-s();
+
+    }
+}
+
+.footer {
+    max-height: 350px;
+    background: $footer-gradient-background;
+  
+
+    &_wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 40px;
+    }
+
+    &_content {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        &-image {
+            max-width: 300px;
+            max-height: 310px;
+        }
+    }
+
+    .content_section {
+        margin-top: 18px;
+        margin-right: 160px;
+        display: flex;
+        flex-direction: column;
+        
+        &-title {
+            span {
+                display: block;
+            }
+
+            color: $color-light-xl;
+            @include h3();
+        }
+
+        &-info {
+            margin-top: 32px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        &_info-title{
+            span {
+                display: block;
+            }
+
+            margin-left: 20px;
+            @include h4();
+            color: $color-primary-color;
+        }
     }
 }
 
