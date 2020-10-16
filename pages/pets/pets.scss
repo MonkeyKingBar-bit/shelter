@@ -286,16 +286,15 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
             align-items: flex-start;
             flex-wrap: wrap;
             justify-content: center;
-            margin-top: 29px;
-            margin-right: -40px;
+            margin-top: 59px;
+            column-gap: 40px;
+            row-gap: 30px;
         }
 
         .pets_card {
             display: flex;
             flex-direction: column;
             border-radius: 9px;
-            margin-top: 30px;
-            margin-right: 40px;
 
             &:hover {
                 box-shadow: $card-hover;

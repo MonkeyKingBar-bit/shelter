@@ -188,8 +188,10 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 29px;
-  margin-right: -40px;
+  margin-top: 59px;
+  -webkit-column-gap: 40px;
+          column-gap: 40px;
+  row-gap: 30px;
 }
 
 .pets_content .pets_card {
@@ -201,8 +203,6 @@
       -ms-flex-direction: column;
           flex-direction: column;
   border-radius: 9px;
-  margin-top: 30px;
-  margin-right: 40px;
 }
 
 .pets_content .pets_card:hover {

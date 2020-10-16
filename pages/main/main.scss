@@ -137,6 +137,21 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
     }
 }
 
+@mixin slider_button_disabled {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow:inset 0 0 0 2px $color-dark-s;
+    border-radius: 100%;
+    transition-duration: 0.5s;
+    width: 52px;
+    height: 52px;
+    padding: 10px;
+    background: none;
+    border: none;
+    outline: none;
+}
+
 @mixin button() {
     font-family: Georgia;
     padding: 15px 45px;
@@ -199,6 +214,7 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
     max-width: 100%;
     position: absolute;
     top: 60px;
+    z-index: 2;
 }
 
 .logo {
@@ -234,6 +250,7 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
     }
 
     & ul li a {
+        display: block;
         text-decoration: none;
         color: $color-dark-s;
         @include paragraph-l;
@@ -425,8 +442,8 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
             }
         }
 
-        .slider_button {
-            @include slider_button();
+        .slider_button_disabled {
+            @include slider_button_disabled();
         }
 
         .slider_button_reverted {
@@ -443,21 +460,19 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
 
 .help {
     padding-top: 80px;
-    padding-left: 3px;
-    padding-bottom: 47px;
+    padding-bottom: 100px;
 
     &_wrapper {
-        width: 100%;
         display: flex;
         flex-direction: column;
-        align-items: center;
     }
 
     &_title {
+
         span {
             display: block;
         }
-        max-width: 400px;
+
         text-align: center;
         color: $color-dark-l;
         @include h3();
@@ -465,29 +480,24 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
 
     &_content {
         display: flex;
-        
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 60px;
+        column-gap: 120px;
+        row-gap: 55px;
+    }
 
-        .help_cards {
-            display: flex;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 60px;
-        }
+    .help_card {
+        display: flex;
+        flex-direction: column;
+    }
 
-        .help_card {
-            display: flex;
-            flex-direction: column;
-            margin: 0 60px;
-            margin-bottom: 24px;
-        }
-
-        .help_card-title {
-            margin: 30px 0;
-            text-align: center;
-            color: $color-dark-l;
-            @include h4();
-        }
+    .help_card-title {
+        margin-top: 30px;
+        text-align: center;
+        color: $color-dark-l;
+        @include h4();
     }
 }
 
@@ -498,8 +508,9 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
     &_wrapper{
         display: flex;
         justify-content: space-between;
-        width: 100%;
-        padding: 80px 142px 99px 142px; 
+        
+        padding-top: 80px; 
+        padding-bottom: 99px; 
     }
 
     & .wrapper {
@@ -511,15 +522,12 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
         margin: 12px 0;
     }
 
-    &_image {
-        width: 100%;
-    }
-
     &_content {
         display: flex;
         justify-content: center;
         flex-direction: column;
         max-width: 380px;
+        margin-left: 30px;
     }
 
     &_title {
@@ -570,12 +578,10 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
 }
 
 .footer {
-    max-height: 350px;
     background: $footer-gradient-background;
   
 
     &_wrapper {
-        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -586,6 +592,7 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
         width: 100%;
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
 
         &-image {
             max-width: 300px;
@@ -594,10 +601,23 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
     }
 
     .content_section {
-        margin-top: 18px;
-        margin-right: 160px;
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
+        padding: 16px 0 0 0;
+
+        &-contacts {
+            margin-right: 160px;
+        }
+
+        &-location a {
+            margin-top: 33px;
+            margin-bottom: 33px;
+        }
+
+        &-contacts a {
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
         
         &-title {
             span {
@@ -609,7 +629,6 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
         }
 
         &-info {
-            margin-top: 32px;
             display: flex;
             align-items: center;
             text-decoration: none;
@@ -639,6 +658,11 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
     .hero {
         padding-top: 150px;
 
+        &_content {
+            flex-direction: column;
+            align-items: center;
+        }
+
         &_image-wrapper {
             padding: 0 70px;
         }
@@ -649,7 +673,7 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
     }
 
     .content-section {
-        padding-bottom: 58px;
+        padding-bottom: 59px;
 
         &_button {
             margin: 42px auto;
@@ -658,7 +682,7 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
 
     .about {
         &_wrapper {
-            padding: 81px 139px 100px 139px;
+            padding: 80px 139px 100px 139px;
             flex-direction: column-reverse;
         }
 
@@ -671,19 +695,86 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
         }
     }
 
-    .pets {
-        &_card:last-child {
+    .pets_content .pets_cards {
+        padding: 60px 12px;
+
+        .pets_card:last-child {
             display: none;
         }
-    }
-}
 
-@media screen and (max-width: 1100px) {
-    .hero_content {
-        flex-direction: column;
+        .pets_card:nth-child(2) {
+            margin: 0;
+        }
+        
+        .pets_card {
+        margin: 0 40px 0 0;
+        }
     }
 
-    .hero_content {
-        align-items: center;
+    .help {
+        &_content {
+            column-gap: 60px;
+            row-gap: 30px;
+
+            .help_cards {
+                justify-content: space-between;
+            }
+
+            .help_card {
+                margin-bottom: 25px;
+            }
+        }
+    }
+
+    .donation {
+        &_wrapper {
+            padding: 80px 100px 100px 100px;
+            flex-direction: column-reverse;
+            
+            .donation_image-wrapper {
+                margin: 59px 0 0 0;
+            }
+        }
+
+        &_content {
+            margin: 0 63px;
+        }
+    }
+
+    .footer {
+        &_wrapper {
+            padding: 30px 34px 0;
+        }
+
+        &_content {
+            flex-wrap: wrap;  
+        }
+
+        .footer_content-image {
+            margin: 25px auto 0 auto;
+        }
+
+        .content_section {
+            padding: 0;
+
+            &-title {
+                margin-bottom: 40px;
+            }
+
+            &-info {
+                margin-bottom: 32px;
+                margin-top: -7px;
+            }
+
+            &-contacts {
+                margin-right: 60px;
+            }
+
+            &-location {
+                .content_section-title {
+                    margin: 0;
+                }
+            }
+        }
     }
 }
