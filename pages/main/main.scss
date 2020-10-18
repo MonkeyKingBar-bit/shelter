@@ -308,6 +308,10 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
     justify-content: center;
 
     &_title {
+        span {
+            display: block;
+        }
+
         color: $color-light-xl;
         max-width: 310px;
         @include h2();
@@ -404,22 +408,25 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
         align-items: center;
 
         .pets_cards {
+            margin: 60px 53px;
             display: flex;
-            padding: 60px 8px;
+            width: 990px;
+            overflow: hidden;
+            column-gap: 90px;
         }
 
         .pets_card {
             display: flex;
             flex-direction: column;
             border-radius: 9px;
-            margin: 0 45px;
 
             &:hover {
                 box-shadow: $card-hover;
             }
 
             &-image {
-                width: 100%;
+                width: 270px;
+                height: 270px;
             }
 
             &-content {
@@ -460,46 +467,65 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
 
 .help {
     padding-top: 80px;
-    padding-bottom: 100px;
+    padding-left: 3px;
+    padding-bottom: 70px;
 
     &_wrapper {
+        width: 100%;
         display: flex;
         flex-direction: column;
-    }
+        align-items: center;
+      }
 
     &_title {
-
-        span {
-            display: block;
-        }
-
+        max-width: 400px;
         text-align: center;
-        color: $color-dark-l;
-        @include h3();
+        color: #545454;
+        font-family: Georgia;
+        font-size: 35px;
+        font-weight: normal;
+        font-style: normal;
+        line-height: 130%;
+        letter-spacing: 0.13125rem;
+
+        & span {
+            display: block;
+          }
     }
 
     &_content {
         display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 60px;
-        column-gap: 120px;
-        row-gap: 55px;
-    }
 
-    .help_card {
-        display: flex;
-        flex-direction: column;
-    }
+        .help_cards {
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 60px;
+            column-gap: 120px;
+            row-gap: 25px;
+            width: 1030px;
+        }
 
-    .help_card-title {
-        margin-top: 30px;
-        text-align: center;
-        color: $color-dark-l;
-        @include h4();
+        .help_card {
+            display: flex;
+            flex-direction: column;
+
+            &-title {
+                margin: 30px 0;
+                text-align: center;
+                color: #545454;
+                font-family: Georgia;
+                font-size: 20px;
+                font-weight: normal;
+                font-style: normal;
+                line-height: 115%;
+                letter-spacing: 0.075rem;
+              }
+        }
     }
 }
+  
 
 .donation {
     display: flex;
@@ -603,11 +629,8 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
     .content_section {
         display: flex;
         justify-content: space-between;
-        padding: 16px 0 0 0;
-
-        &-contacts {
-            margin-right: 160px;
-        }
+        padding: 16px 167px 0 0;
+        column-gap: 160px;
 
         &-location a {
             margin-top: 33px;
@@ -642,6 +665,227 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
             margin-left: 20px;
             @include h4();
             color: $color-primary-color;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+    .wrapper {
+        padding: 0 10px;
+    }
+
+    .header {
+        top: 30px;
+    }
+
+    .navbar {
+        margin-top: 20px;
+        margin-right: 43px;
+        background-image: url(../../assets/icons/Burger.svg);
+        max-width: 30px;
+        max-height: 22px;
+    }
+
+    .navbar ul{
+        display: none;
+    }
+
+    .hero {
+        padding-top: 150px;
+
+        &_content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        &_image-wrapper {
+            padding: 25px 0px 0 40px;
+        }
+
+    }
+
+    .content-section {
+        max-width: none;
+        align-items: center;
+
+        &_title {
+            @include h3-mobile();
+            text-align: center;
+        }
+
+        &_subtitle {
+            text-align: center;
+        }
+
+        &_button {
+            margin-top: 42px;
+        }
+    }
+
+    .about {
+        &_wrapper {
+            flex-wrap: wrap-reverse;
+            padding: 42px 0;
+        }
+
+        &_title {
+            @include h3_mobile();
+            text-align: center;
+        }
+
+        &_description {
+            margin: 26px 15px 0 15px;
+            text-align: justify;
+
+            p {
+                & + p {
+                    margin-top: 22px;
+                }
+            }
+        }
+
+        &_image-wrapper {
+            margin: 41px 20px 0.4px 20px;
+        }
+    }
+
+    .pets {
+        padding: 42px 0;
+
+        &_title {
+            @include h3-mobile();
+        }
+
+        .pets_content {
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-around;
+
+            .pets_cards {
+                width: 270px;
+                margin: 42px 12px 20px 12px;
+            }
+
+            .slider_button_disabled {
+                order: 1;
+                margin-left: 18px;
+            }
+
+            .slider_button_reverted {
+                order: 1;
+                margin-right: 18px;
+            }
+        }
+        
+        &_button {
+            margin-top: 42px;
+        }
+    }
+
+    .help {
+        padding: 42px 5px;
+
+        &_title {
+            @include h3-mobile();
+            text-align: center;
+        }
+
+        .help_content {
+
+            .help_cards {
+                width: 250px;
+                column-gap: 30px;
+                row-gap: 30px;
+                margin-top: 43px;
+                justify-content: space-between;
+            }
+
+            .help_card {
+                align-items: center;
+                height: 87px;
+                width: 90px;
+
+                &-title {
+                    @include h5();
+                    margin: 20px 0;  
+                    width: 130px;         
+                }
+
+                &-image {
+                        width: 50px;
+                        height: 50px;
+                }
+            }
+        }
+    }
+
+    .donation {
+        &_wrapper {
+            padding: 42px 0 0 0;
+            flex-wrap: wrap-reverse;
+        }
+
+        &_image-wrapper {
+            margin: 42px auto;
+            width: 260px;
+        }
+
+        &_image {
+            width: 100%;
+        }
+
+        &_content {
+            margin: 0 auto;
+        }
+
+        &_title {
+            @include h3-mobile();
+            text-align: center;
+        }
+
+        &_description {
+            @include paragraph-l();
+            text-align: center;
+            letter-spacing: 0;
+        }
+
+        &_link {
+            max-width: 281px;
+            margin: 0 9px;
+            height: 43px;
+            padding: 10px 0 10px 15px;
+            
+            &-text {
+                @include h5();
+                padding: 3px 0;
+            }
+        }
+
+        &_information {
+            margin: 20px 10px 0 10px;
+            text-align: justify;
+        }
+
+
+    }
+
+    .footer {
+        &_wrapper {
+            padding: 30px 0 0 0;
+        }
+
+        .content_section {
+            flex-wrap: wrap;
+            padding: 0 0 30px 0;
+
+            &-contacts{
+                margin: 0 11px;
+            }
+
+            &-title {
+                @include h3-mobile();
+                text-align: center;
+            }
         }
     }
 }
@@ -696,39 +940,22 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
     }
 
     .pets_content .pets_cards {
-        padding: 60px 12px;
-
-        .pets_card:last-child {
-            display: none;
-        }
-
-        .pets_card:nth-child(2) {
-            margin: 0;
-        }
-        
-        .pets_card {
-        margin: 0 40px 0 0;
-        }
+        width: 580px;
+        margin: 60px 12px;
+        column-gap: 40px;
     }
 
-    .help {
-        &_content {
-            column-gap: 60px;
-            row-gap: 30px;
-
-            .help_cards {
-                justify-content: space-between;
-            }
-
-            .help_card {
-                margin-bottom: 25px;
-            }
-        }
+    /*   !Don't work   */
+    .help_content  .help_cards {
+        justify-content: space-between;
+        width: 626px;
+        column-gap: 60px;
+        row-gap: 25px;
     }
 
     .donation {
         &_wrapper {
-            padding: 80px 100px 100px 100px;
+            padding: 80px 100px 102px 100px;
             flex-direction: column-reverse;
             
             .donation_image-wrapper {
@@ -756,6 +983,7 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
 
         .content_section {
             padding: 0;
+            column-gap: 60px;
 
             &-title {
                 margin-bottom: 40px;
@@ -764,10 +992,6 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
             &-info {
                 margin-bottom: 32px;
                 margin-top: -7px;
-            }
-
-            &-contacts {
-                margin-right: 60px;
             }
 
             &-location {
