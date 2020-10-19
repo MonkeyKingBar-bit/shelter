@@ -42,6 +42,17 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
     letter-spacing: 0.13125rem;
 }
 
+@mixin h3-mobile {
+    font: {
+        family: Georgia;
+        style: normal;
+        weight: normal;
+        size: 25px;
+    }
+    letter-spacing: 0.06em;
+    line-height: 130%;
+}
+
 @mixin h4 {
     font: {
         family: Georgia;
@@ -289,6 +300,8 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
             margin-top: 59px;
             column-gap: 40px;
             row-gap: 30px;
+            height: 930px;
+            overflow: hidden;
         }
 
         .pets_card {
@@ -386,12 +399,10 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
 }
 
 .footer {
-    max-height: 350px;
     background: $footer-gradient-background;
   
 
     &_wrapper {
-        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -402,6 +413,7 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
         width: 100%;
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
 
         &-image {
             max-width: 300px;
@@ -410,22 +422,28 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
     }
 
     .content_section {
-        margin-top: 18px;
-        margin-right: 160px;
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
+        padding: 16px 166px 0 0;
+        column-gap: 160px;
+
+        &-location a {
+            margin-top: 33px;
+            margin-bottom: 33px;
+        }
+
+        &-contacts a {
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
         
         &-title {
-            span {
-                display: block;
-            }
-
+            width: 279px;
             color: $color-light-xl;
             @include h3();
         }
 
         &-info {
-            margin-top: 32px;
             display: flex;
             align-items: center;
             text-decoration: none;
@@ -443,18 +461,153 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
     }
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 767px) and (min-width: 320px) {
     .wrapper {
-        padding: 0.4rem;
+        padding: 0 10px;
+    }
+
+    .header {
+        padding: 30px 0;
+
+        .logo_subtitle {
+            margin-top: 12px;
+        }
+    }
+
+    .navbar {
+        margin-top: 20px;
+        margin-right: 43px;
+        background-image: url(../../assets/icons/Burger.svg);
+        max-width: 30px;
+        max-height: 22px;
+    }
+
+    .navbar ul{
+        display: none;
+    }
+
+    .pets {
+        padding-top: 80px;
+        padding-bottom: 42px;
+
+        &_title {
+            @include h3-mobile();
+        }
+
+        .pets_content .pets_cards {
+            margin-top: 41px;
+            height: 1347px;
+        }
+
+        &_navigation {
+            width: 300px;
+            column-gap: 10px;
+
+            &-button_inactive, &-button_inactive, &-button_reverted {
+                margin: 0;
+            }
+        }
+    }
+
+    .footer {
+        &_wrapper {
+            padding: 30px 0 0 0;
+        }
+
+        .content_section {
+            flex-wrap: wrap;
+            padding: 0 0 7px 0;
+
+            &-contacts{
+                margin: 0 11px;
+
+                a {
+                    margin-left: 13px;
+                    margin-right: 13px;
+
+                    & + a {
+                        margin-left: 19px;
+                    }
+                }
+            }
+
+            &-location {
+                a {
+                    margin-top: 40px;
+                }
+
+                .content_section-title {
+                    margin: 0 11px;
+                }
+            }
+
+            &-title {
+                @include h3-mobile();
+                text-align: center;
+            }
+        }
+
+        &_content-image {
+            margin: 0 20px;
+            max-width: 260px;
+            max-height: 269px;
+
+            img {
+                width: 100%;
+            }
+        }
     }
 }
 
-@media screen and (max-width: 1100px) {
-    .hero_content {
-        flex-direction: column;
+@media screen and (max-width: 1279px) and (min-width: 768px) {
+    .wrapper {
+        padding: 0 30px;
     }
 
-    .hero_content {
-        align-items: center;
+    .header {
+        padding: 30px 0;
+    }
+
+    .pets {
+        padding-bottom: 76px;
+
+        &_content .pets_cards {
+            margin-top: 29px;
+            height: 1345px;
+        }
+    }
+
+    .footer {
+        &_wrapper {
+            padding: 30px 34px 0;
+        }
+
+        &_content {
+            flex-wrap: wrap;  
+        }
+
+        .footer_content-image {
+            margin: 25px auto 0 auto;
+        }
+
+        .content_section {
+            padding: 0;
+            column-gap: 59px;
+
+            &-title {
+                margin-bottom: 40px;
+            }
+
+            &-info {
+                margin-bottom: 32px;
+                margin-top: -7px;
+            }
+
+            &-location {
+                .content_section-title {
+                    margin: 0;
+                }
+            }
+        }
     }
 }
