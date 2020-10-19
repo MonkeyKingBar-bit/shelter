@@ -12,11 +12,11 @@ $color-dark-xl: #4C4C4C;
 $color-dark-2xl: #444444;
 $color-dark-3xl: #292929;
 
-$start-screen-gradient-background: url(/assets/images/noise_transparent@2x.png), 
+$start-screen-gradient-background: url(../../assets/images/noise_transparent@2x.png), 
 radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), 
 #211F20;
 
-$footer-gradient-background: url(/assets/images/noise_transparent@2x.png), 
+$footer-gradient-background: url(../../assets/images/noise_transparent@2x.png), 
 radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%),
 #211F20;
 
@@ -963,7 +963,7 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
         &_image {
             margin: 0 65px;
         }
-        
+
         &_description p + p {
             margin-top: 24px;
         }
