@@ -24,12 +24,28 @@
             </div>
             <nav class="navbar">
                 <ul>
-                    <li><a class="link_visible" href="../main/main.html">About the shelter</a></li>
-                    <li><a class="link_invisible" href="../pets/pets.html">Our pets</a></li>
-                    <li><a class="link_invisible" href="#">Help the shelter</a></li>
-                    <li><a class="link_invisible" href="#">Contacts</a></li>
+                    <li navbar_item><a class="navbar_link activate" href="../main/main.html">About the shelter</a></li>
+                    <li navbar_item><a class="navbar_link activate" href="../pets/pets.html" >Our pets</a></li>
+                    <li navbar_item><a class="navbar_link deactivate" onclick="return false">Help the shelter</a></li>
+                    <li navbar_item><a class="navbar_link deactivate" onclick="return false">Contacts</a></li>
                 </ul>
+                <div class="header_nav-close">
+                    <span class="_header_nav-close">
+                        <div class="header_nav-logo">
+                            <h1 class="header_nav-logo_title">Cozy House</h1>
+                            <p class="header_nav-logo_subtitle">Shelter for pets in Boston</p>
+                        </div>
+                        <span class="header_nav-close-line_first"></span>
+                        <span class="header_nav-close-line_second"></span>
+                        <span class="header_nav-close-line_third"></span>
+                    </span>
+                </div>
             </nav>
+            <div class="header_burger" burger>
+                <span class="burger_line burger_line_first"></span>
+                <span class="burger_line burger_line_second"></span>
+                <span class="burger_line burger_line_third"></span>
+            </div>
         </div>
     </header>
 

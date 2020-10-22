@@ -95,6 +95,16 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
     line-height: 150%;
 }
 
+@mixin paragraph-mobile-menu {
+    font: {
+        family: Arial;
+        style: normal;
+        weight: normal;
+        size: 32px;
+    }
+    line-height: 160%;
+}
+
 @mixin logo-title {
     font: {
         family: Georgia;
@@ -217,6 +227,51 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
     z-index: 2;
 }
 
+.header_burger {
+    display: none;
+    width: 30px;
+    height: 22px;
+    position: relative;
+}
+
+.burger_line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #F1CDB3;
+    position: absolute;
+    left: 0;
+}
+
+.burger_line_first {
+    top: 0
+}
+
+.burger_line_second {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.burger_line_third {
+    bottom: 0;
+}
+
+.header_nav-logo {
+    display: none;
+}
+
+.header_nav-logo_title {
+    color: $color-primary-color;
+    @include logo-title;
+}
+
+.header_nav-logo_subtitle {
+    margin-top: 10px;
+    text-align: center;
+    color: $color-light-xl;
+    @include logo_subtitle;
+}
+
 .logo {
     display: flex;
     flex-direction: column;
@@ -235,7 +290,6 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
 }
 
 .navbar {
-    
     width: 443px;
     display: flex;
     justify-content: space-between;
@@ -255,7 +309,7 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
         color: $color-dark-s;
         @include paragraph-l;
     }
-    
+
     & ul li:first-child{
         border-bottom: 3px $color-primary-color solid;
         color: $color-light-xl;
@@ -272,6 +326,19 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
     & ul li:hover a:hover{
         cursor: pointer;
         color: $color-light-xl;
+    }
+
+    & ul li a:not(.activate):hover {  
+        cursor: default; 
+        color: $color-dark-s;
+    }
+
+    & ul li:nth-child(3):hover {
+        border-bottom: none;
+    }
+
+    & ul li:nth-child(4):hover {
+        border-bottom: none;
     }
 }
 
@@ -675,16 +742,44 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
         top: 30px;
     }
 
-    .navbar {
-        margin-top: 20px;
-        margin-right: 43px;
-        background-image: url(../../assets/icons/Burger.svg);
-        max-width: 30px;
-        max-height: 22px;
+    .header_burger {
+        display: block;
     }
 
-    .navbar ul{
-        display: none;
+    .navbar {
+        position: fixed;
+        max-width: 320px;
+        height: 100%;
+        top: 0;
+        right: 0;
+        background: $color-dark-3xl;
+        z-index: 10;
+        
+        &_item {
+            width: 100%;
+            margin-right: 0;
+            margin-bottom: 40px;
+        }
+
+        &_item:last-child {
+            margin-bottom: 0;
+        }
+
+        &_link {
+            @include paragraph-mobile-menu();
+        }
+
+        .header_nav-logo{
+            display: block;
+        }
+    }
+
+    .header_nav-close {
+        width: 30px;
+        height: 20px;
+        position: absolute;
+        top: 30px;
+        right: 43px;
     }
 
     .hero {
