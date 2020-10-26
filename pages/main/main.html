@@ -24,24 +24,26 @@
             </div>
             <nav class="navbar">
                 <ul>
-                    <li navbar_item><a class="navbar_link activate" href="../main/main.html">About the shelter</a></li>
-                    <li navbar_item><a class="navbar_link activate" href="../pets/pets.html" >Our pets</a></li>
-                    <li navbar_item><a class="navbar_link deactivate" onclick="return false">Help the shelter</a></li>
-                    <li navbar_item><a class="navbar_link deactivate" onclick="return false">Contacts</a></li>
+                    <li><a class="activate" href="../main/main.html">About the shelter</a></li>
+                    <li><a class="activate" href="../pets/pets.html" >Our pets</a></li>
+                    <li><a class="deactivate" onclick="return false">Help the shelter</a></li>
+                    <li><a class="deactivate" onclick="return false">Contacts</a></li>
                 </ul>
-                <div class="header_nav-close">
-                    <span class="_header_nav-close">
-                        <div class="header_nav-logo">
-                            <h1 class="header_nav-logo_title">Cozy House</h1>
-                            <p class="header_nav-logo_subtitle">Shelter for pets in Boston</p>
+                <div class="header_burger-close_menu">
+                        <div class="header_burger-close_menu-logo">
+                            <h1 class="close_logo-title">Cozy House</h1>
+                            <p class="close_logo_subtitle">Shelter for pets in Boston</p>
                         </div>
-                        <span class="header_nav-close-line_first"></span>
-                        <span class="header_nav-close-line_second"></span>
-                        <span class="header_nav-close-line_third"></span>
-                    </span>
-                </div>
+                        <div data-close-burger class="header_burger-close">
+                            <span class="burger_close-line"></span>
+                            <span class="burger_close-line"></span>
+                            <span class="burger_close-line"></span>
+                        </div>
+                </div>  
+                                  
             </nav>
-            <div class="header_burger" burger>
+            
+            <div data-burger-target="navbar" class="header_burger" id="burger">
                 <span class="burger_line burger_line_first"></span>
                 <span class="burger_line burger_line_second"></span>
                 <span class="burger_line burger_line_third"></span>
@@ -67,7 +69,7 @@
                             We offer to give a chance to a little and nice puppy with an extremely wide and open heart. 
                             He or she will love you more than anybody else in the world, you will see!
                         </p>
-                        <button class="content-section_button" type="button">
+                        <button onclick="document.location='../pets/pets.html'" class="content-section_button" type="button">
                             Make a friend
                         </button>
                     </div>
@@ -117,8 +119,8 @@
 
         <section class="pets">
             <div class="wrapper">
-                <div class="pets_wrapper">
-                    <h3 class="pets_title">
+                <div class="pest__inner">
+                    <h3 class="pets__title">
                         <span>
                             Our friends who
                         </span> 
@@ -126,46 +128,51 @@
                             are looking for a house
                         </span>
                     </h3>
-                    <div class="pets_content">
-                        <button class="slider_button_disabled" disabled>
-                            <img class="pets_slider-icon" src="../../assets/icons/arrow_disabled.svg" alt="left arrow disabled">
+
+                    <div class="pets__slider">
+                        <button class="pets__slider__arrow" id="prev">
+                            <svg width="14" height="6" viewBox="0 0 14 6" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 2V4H3V6L0 3L3 0V2H14Z" fill="inherit" />
+                            </svg>
                         </button>
-                        <div class="pets_cards">
-                            <div class="pets_card">
-                                <img src="../../assets/images/pets-katrine.png" alt="Pets Katrine" class="pets_card-image">
-                                <div class="pets_card-content">
-                                    <h4 class="pets_card-title">
-                                        Katrine
-                                    </h4>
-                                    <button class="pets_card-button">Learn more</button>
-                                </div>
-                            </div>
 
-                            <div class="pets_card">
-                                <img src="../../assets/images/pets-jennifer.png" alt="Pets Jennifer" class="pets_card-image">
-                                <div class="pets_card-content">
-                                    <h4 class="pets_card-title">
-                                        Jennifer
-                                    </h4>
-                                    <button class="pets_card-button">Learn more</button>
-                                </div>
-                            </div>
-
-                            <div class="pets_card">
-                                <img src="../../assets/images/pets-woody.png" alt="Pets Woody" class="pets_card-image">
-                                <div class="pets_card-content">
-                                    <h4 class="pets_card-title">
-                                        Woody
-                                    </h4>
-                                    <button class="pets_card-button">Learn more</button>
-                                </div>
-                            </div>
+                        <div class="pets__slider__cards">
+                            <div class="pets__slider__cards__track"></div>
                         </div>
-                        <button class="slider_button_reverted">
-                            <img class="pets_slider-icon" src="../../assets/icons/arrow.svg" alt="right arrow">
+
+                        <button class="pets__slider__arrow pets__slider__arrow--reverse" id="next">
+                            <svg width="14" height="6" viewBox="0 0 14 6" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 2V4H3V6L0 3L3 0V2H14Z" fill="inherit" />
+                            </svg>
                         </button>
                     </div>
-                    <button class="pets_button">Get to know the rest</button>
+
+                    <a href="../pets/pets.html" class="pets__button">Get to know the rest</a>
+                </div>
+
+                <div class="pets__blackout"></div>
+
+                <div class="pets__popup">
+                    <div class="pets__popup__img">
+                        <img src="" alt="" />
+                    </div>
+
+                    <div class="pets__popup__content">
+                        <p class="pets__popup__name"></p>
+                        <p class="pets__popup__type"></p>
+                        <p class="pets__popup__description"></p>
+
+                        <ul class="pets__popup__info">
+                            <li><strong>Age:</strong> <span id="age"></span></li>
+                            <li><strong>Inoculations:</strong> <span id="inoculations"></span></li>
+                            <li><strong>Diseases:</strong> <span id="diseases"></span></li>
+                            <li><strong>Parasites:</strong> <span id="parasites"></span></li>
+                        </ul>
+                    </div>
+
+                    <button class="pets__close">
+                        <img src="../../assets/icons/close.svg" alt="Close icon" />
+                    </button>
                 </div>
             </div>
         </section>
@@ -361,5 +368,6 @@
             </div>
         </div>
     </footer>
+    <div class="overlay"></div>
 </body>
 </html>

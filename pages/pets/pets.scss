@@ -22,6 +22,8 @@ radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%),
 
 $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
 
+$blackout: rgba(41, 41, 41, 0.6);
+
 @mixin h2 {
     font: {
         family: Georgia;
@@ -93,6 +95,16 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
         weight: normal;
     }
     line-height: 150%;
+}
+
+@mixin paragraph-mobile-menu {
+    font: {
+        family: Arial;
+        style: normal;
+        weight: normal;
+        size: 32px;
+    }
+    line-height: 160%;
 }
 
 @mixin logo-title {
@@ -172,7 +184,6 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
     @include button;
 }
 
-
 :root {
     font-size: 16px;
 }
@@ -201,6 +212,40 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
     top: 0px;
     padding: 30px 40px;
     background-color: $color-light-xl;
+    z-index: 2;
+}
+
+.header_burger {
+    display: none;
+    width: 30px;
+    height: 22px;
+    position: relative;
+
+    .burger_line {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #F1CDB3;
+        position: absolute;
+        left: 0;
+        
+        &_first {
+            top: 0;
+        }
+    
+        &_second {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    
+        &_third {
+            bottom: 0;
+        }
+    }
+}
+
+.header_burger-close_menu{
+    display: none;
 }
 
 .logo {
@@ -218,6 +263,10 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
         color: $color-dark-3xl;
         @include logo_subtitle;
     }
+}
+
+.logo_active {
+    display: none;
 }
 
 .navbar {
@@ -257,157 +306,284 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
         cursor: pointer;
         color: $color-dark-3xl;
     }
+    & ul li a:not(.activate):hover {  
+        cursor: default; 
+        color: $color-dark-s;
+    }
+
+    & ul li:nth-child(3):hover {
+        border-bottom: none;
+    }
+
+    & ul li:nth-child(4):hover {
+        border-bottom: none;
+    }
 }
 
 .main {
+    
     display: flex;
     flex-direction: column;
 }
 
-.pets {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
+.friends {
+    padding-top: 200px;
+    padding-bottom: 100px;
 
-    img {
-        width: 180px;
-        height: 180px;
-        border: 5px solid white;
+    background-color: $color-light-l;
+}
+
+.friends__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.friends__title {
+    width: 400px;
+
+    color: $color-dark-l;
+    @include h3;
+    text-align: center;
+}
+
+.friends__slider {
+    margin-top: 60px;
+    width: 1200px;
+    height: 900px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.friend__track {
+    display: flex;
+    position: absolute;
+    transition: all 0.3s ease-out;
+}
+
+.friends__slider__block {
+    margin: -30px -20px 0;
+    width: 1240px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.friends__card {
+    margin: 30px 20px 0;
+
+    border-radius: 9px;
+    background-color: $color-light-s;
+    transition: box-shadow 0.14s linear, background-color 0.14s linear;
+
+    &:hover {
+        background-color: $color-light-xl;
+        box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
     }
 }
 
-/*
-.pets {
-    padding-top: 118px;
-    padding-bottom: 100px;
-    background-color: $color-light-l;
+.friends__card__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-    &_wrapper {
-        padding-top: 83px;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+.friends__card__title {
+    margin-top: 27px;
+    margin-bottom: 30px;
+
+    color: $color-dark-l;
+    @include h4();
+}
+
+.friends__card__button {
+    margin-bottom: 30px;
+
+    padding: 13px 43px;
+    @include button_secondary();
+        color: $color-dark-3xl;
+}
+
+.friends__switches {
+    margin-top: 42px;
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.friends__switch {
+    width: 52px;
+    height: 52px;
+    border: 2px solid $color-primary-color;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+    transition: background-color 0.14s linear;
+
+    font-family: Georgia, serif;
+    @include h4;
+
+    &:hover {
+        background-color: $color-primary-color;
     }
 
-    &_title {
+    &:disabled {
+        border-color: $color-dark-s;
+        cursor: default;
+
+        svg {
+            fill: $color-dark-s;
+        }
+
+        &:hover {
+            background-color: transparent;
+        }
+    }
+}
+
+.friends__switch svg {
+    fill: $color-dark-3xl;
+}
+
+.friends__switch--number {
+    background-color: $color-primary-color;
+    cursor: default;
+}
+
+.friends__switch--reverse {
+    transform: rotate(180deg);
+}
+
+.pets__blackout {
+    height: 100vh;
+    width: 100%;
+
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    background-color: $color-dark-3xl;
+    transition: opacity 0.25s linear, visibility 0.25s linear;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    &.active {
+        opacity: 0.6;
+        visibility: visible;
+    }
+}
+
+.pets__popup {
+    display: flex;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s linear, visibility 0.25s linear;
+    background-color: #fff;
+    border-radius: 9px;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.pets__popup__img {
+    width: 500px;
+    height: 500px;
+
+    img {
+        display: block;
+        width: 100%;
+        border-radius: 0 0 9px 9px;
+    }
+}
+
+.pets__popup__content {
+    margin: 50px 20px 0 29px;
+    width: 351px;
+}
+
+.pets__popup__name {
+    margin-bottom: 10px;
+    @include h3;
+}
+
+.pets__popup__type {
+    margin-bottom: 40px;
+    @include h4;
+}
+
+.pets__popup__description {
+    margin-bottom: 40px;
+    @include h5;
+    line-height: normal;
+}
+
+.pets__popup__info {
+    list-style-type: disc;
+    padding-left: 14px;
+
+    li {
+        margin-bottom: 12px;
+        color: $color-primary-color;
+        @include h5;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        strong {
+            color: #000;
+        }
+
         span {
-            display: block;
-        }
-        max-width: 400px;
-        text-align: center;
-        color: $color-dark-l;
-        @include h3();
-    }
-
-    &_content {
-        width: 100%;
-        display: flex;
-        align-items: center;
-
-        .pets_cards {
-            display: flex;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 59px;
-            column-gap: 40px;
-            row-gap: 30px;
-            height: 900px;
-            overflow: hidden;
-        }
-
-        .pets_card {
-            display: flex;
-            flex-direction: column;
-            border-radius: 9px;
-
-            &:hover {
-                box-shadow: $card-hover;
-            }
-
-            &-image {
-                width: 100%;
-            }
-
-            &-content {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding-bottom: 30px;
-                padding-left: 2px;
-            }
-
-            &-title {
-                margin: 30px 0;
-                text-align: center;
-                color: $color-dark-l;
-                @include h4();
-            }
-
-            &-button {
-                @include button_secondary();
-                color: $color-dark-3xl;
-            }
+            color: #000;
+            font-weight: 400;
         }
     }
+}
 
-    &_navigation {
-        display: flex;
-        justify-content: space-between;
-        padding-top: 60px;
-        max-width: 340px;
+.pets__close {
+    width: 50px;
+    height: 50px;
 
-        &-button {
-            padding-bottom: 12px;
-        }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        &-button_inactive {
-                box-shadow:inset 0 0 0 2px $color-dark-s;
-                border-radius: 100%;
-                transition-duration: 0.5s;
-                width: 52px;
-                height: 52px;
-                padding: 10px;
-                background: none;
-                border: none;
-                outline: none;
-                margin-right: 20px;
-                @include h4();
-        }
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid $color-primary-color;
+    transition: background-color 0.25s linear;
 
-        &-button_active {
-                background: $color-primary-color;
-                box-shadow:inset 0 0 0 2px $color-primary-color;
-                border-radius: 100%;
-                transition-duration: 0.5s;
-                width: 52px;
-                height: 52px;
-                padding: 10px;
-                cursor: pointer;
-                border: none;
-                outline: none;
-                padding-bottom: 12px;
-                @include h4();
-                
-                &:hover {
-                    box-shadow: none;
-                    background-color: $color-primary-light;
-                }
-        }
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: -52px;
+    margin-right: -42px;
 
-        &-button_reverted {
-            @include slider_button();
-            color: $color-dark-3xl;
-            margin-left: 20px;
-            padding-bottom: 12px;
-            @include h4();
-        }
+    &:hover {
+        background-color: $color-primary-color;
     }
 
-    &_button {
-        letter-spacing: 0.06rem;
-        @include button_primary();
+    &.active {
+        background-color: $color-primary-color;
     }
 }
 
@@ -484,42 +660,190 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
 
         .logo_subtitle {
             margin-top: 12px;
+            color: $color-dark-3xl;
         }
+    }
+
+    .header_burger {
+        display: block;
+        top: 20px;
+        right: 43px;
     }
 
     .navbar {
-        margin-top: 20px;
-        margin-right: 43px;
-        background-image: url(../../assets/icons/Burger.svg);
-        max-width: 30px;
-        max-height: 22px;
+        position: fixed;
+        width: 320px;
+        height: 100vh;
+        top: 0;
+        right: 0;
+        background: $color-light-l;
+        z-index: 10;
+        padding: 248px 39px;
+        transform: translateX(100%);
+        transition: .5s all linear;
+
+        ul {
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        ul li {
+            margin-bottom: 40px;
+        }
+
+        ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        ul li a {
+            @include paragraph-mobile-menu();
+        }
     }
 
-    .navbar ul{
+    .navbar_active {
+        transform: translateX(0);
+        animation-duration: .5s;
+        animation-name: slide-in;
+    }
+
+        @keyframes slide-in {
+        from {
+            margin-left: 100%;
+            width: 320px; 
+        }
+
+        to {
+            margin-left: 0%;
+            width: 320px;
+        }
+    }
+
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: $blackout;
+        overflow: hidden;
+      }
+      
+      .overlay_active {
+        display: block;
+      }
+
+    .header_burger-close_menu {
+        display: block;
+    }
+
+    .header_burger-close {
+        width: 30px;
+        height: 20px;
+        position: absolute;
+        top: 20px;
+        right: 0;
+        z-index: 11px;
+        
+        &_menu {
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+            top: 30px;
+            left: 10px;
+            right: 53px;
+        }
+
+        &_menu-logo {
+            display: block;
+            .close_logo-title {
+                color: $color-primary-color;
+                @include logo-title();
+            }
+            .close_logo_subtitle {
+                margin-top: 11px;
+                margin-left: 4px;
+                color: $color-dark-3xl;
+                @include logo_subtitle();
+            }
+        }
+
+        .burger_close-line {
+            width: 100%;
+            display: block;
+            height: 2px;
+            background-color: #F1CDB3;
+            position: absolute;
+
+            &:first-child {
+                top: 0%;
+            }
+
+            &:nth-child(2) {
+                top: 56%;
+                transform: translateY(-50%);
+            }
+
+            &:last-child {
+                top: 100%;
+            }
+        }
+    }
+
+    .header_burger-close_active {
+        transition: .5s;
+        transform: rotate(90deg);
+    }
+
+    .friends { 
+        padding-top: 162px;
+        padding-bottom: 42px;
+    }
+
+    .friends__title {
+        width: 300px;
+        @include h3-mobile();
+    }
+
+    .friends__slider {
+        margin-top: 42px;
+        width: 270px;
+        flex-direction: column;
+        height: 1365px;
+    }
+
+    .friends__slider__block {
+        width: 310px;
+    }
+
+    .friends__switches {
+        column-gap: 10px;
+    }
+
+    .pets__popup__img {
         display: none;
     }
 
-    .pets {
-        padding-top: 80px;
-        padding-bottom: 42px;
+    .pets__popup__content {
+        margin: 10px;
+        width: 220px;
+    }
 
-        &_title {
-            @include h3-mobile();
-        }
+    .pets__popup__name {
+        text-align: center;
+    }
 
-        .pets_content .pets_cards {
-            margin-top: 41px;
-            height: 1347px;
-        }
+    .pets__popup__type {
+        text-align: center;
+    }
 
-        &_navigation {
-            width: 300px;
-            column-gap: 10px;
+    .pets__popup__description {
+        margin-bottom: 24px;
+        text-align: justify;
+    }
 
-            &-button_inactive, &-button_inactive, &-button_reverted {
-                margin: 0;
-            }
-        }
+    .pets__close {
+        margin-right: -26px;
     }
 
     .footer {
@@ -528,6 +852,8 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
         }
 
         .content_section {
+            justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
             padding: 0 0 7px 0;
 
@@ -561,6 +887,8 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
         }
 
         &_content-image {
+            justify-content: center;
+            align-items: center;
             margin: 0 20px;
             max-width: 260px;
             max-height: 269px;
@@ -581,13 +909,46 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
         padding: 30px 0;
     }
 
-    .pets {
+    .friends {
         padding-bottom: 76px;
+    }
 
-        &_content .pets_cards {
-            margin-top: 29px;
-            height: 1345px;
-        }
+    .friends__slider {
+        margin-top: 30px;
+        width: 580px;
+        height: 1365px;
+    }
+
+    .friends__slider__block {
+        width: 620px;
+    }
+
+    .friends__switches {
+        margin-top: 40px;
+    }
+
+    .pets__popup__img {
+        width: 350px;
+        height: 350px;
+    }
+
+    .pets__popup__content {
+        margin: 10px 9px 0 11px;
+        width: 265px;
+    }
+    
+    .pets__popup__type {
+        margin-bottom: 20px;
+    }
+
+    .pets__popup__description {
+        margin-bottom: 20px;
+        font-size: rem(13px);
+        line-height: 1.1;
+    }
+
+    .pets__popup__info {
+        margin-bottom: 7px;
     }
 
     .footer {
@@ -623,4 +984,4 @@ $card-hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
             }
         }
     }
-}*/
+}

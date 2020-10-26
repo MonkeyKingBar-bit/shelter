@@ -16,7 +16,7 @@
     <meta name="theme-color" content="#ffffff">
 </head>
 <body>
-    <!--
+
     <header class="header">
         <div class="wrapper">
             <div class="logo">
@@ -25,127 +25,105 @@
             </div>
             <nav class="navbar">
                 <ul>
-                    <li><a class="link_invisible" href="../main/main.html">About the shelter</a></li>
-                    <li><a class="link_visible" href="../pets/pets.html">Our pets</a></li>
-                    <li><a class="link_invisible" href="#">Help the shelter</a></li>
-                    <li><a class="link_invisible" href="#">Contacts</a></li>
+                    <li><a class="activate" href="../main/main.html">About the shelter</a></li>
+                    <li><a class="activate" href="../pets/pets.html" >Our pets</a></li>
+                    <li><a class="deactivate" onclick="return false">Help the shelter</a></li>
+                    <li><a class="deactivate" onclick="return false">Contacts</a></li>
                 </ul>
+                <div class="header_burger-close_menu">
+                        <div class="header_burger-close_menu-logo">
+                            <h1 class="close_logo-title">Cozy House</h1>
+                            <p class="close_logo_subtitle">Shelter for pets in Boston</p>
+                        </div>
+                        <div data-close-burger class="header_burger-close">
+                            <span class="burger_close-line"></span>
+                            <span class="burger_close-line"></span>
+                            <span class="burger_close-line"></span>
+                        </div>
+                </div>  
+                                  
             </nav>
+            
+            <div data-burger-target="navbar" class="header_burger" id="burger">
+                <span class="burger_line burger_line_first"></span>
+                <span class="burger_line burger_line_second"></span>
+                <span class="burger_line burger_line_third"></span>
+            </div>
         </div>
     </header>
-    -->
+    
+    <main class="main">
+        <section class="friends">
+            <div class="container">
+                <div class="friends__inner">
+                    <h3 class="friends__title">Our friends who are&nbsp;looking for a house</h3>
 
-    <main>
-        <section class="pets" id="pets">
-            <!--
-            <div class="wrapper">
-                <div class="pets_wrapper">
-                    <h3 class="pets_title">
-                        <span>
-                            Our friends who
-                        </span> 
-                        <span>
-                            are looking for a house
-                        </span>
-                    </h3>
-                    <div class="pets_content">
-                        
-                        <div class="pets_cards">
-                            <div class="pets_card">
-                                <img src="../../assets/images/pets-katrine.png" alt="Pets Katrine" class="pets_card-image">
-                                <div class="pets_card-content">
-                                    <h4 class="pets_card-title">
-                                        Katrine
-                                    </h4>
-                                    <button class="pets_card-button">Learn more</button>
-                                </div>
-                            </div>
-
-                            <div class="pets_card">
-                                <img src="../../assets/images/pets-jennifer.png" alt="Pets Jennifer" class="pets_card-image">
-                                <div class="pets_card-content">
-                                    <h4 class="pets_card-title">
-                                        Jennifer
-                                    </h4>
-                                    <button class="pets_card-button">Learn more</button>
-                                </div>
-                            </div>
-
-                            <div class="pets_card">
-                                <img src="../../assets/images/pets-woody.png" alt="Pets Woody" class="pets_card-image">
-                                <div class="pets_card-content">
-                                    <h4 class="pets_card-title">
-                                        Woody
-                                    </h4>
-                                    <button class="pets_card-button">Learn more</button>
-                                </div>
-                            </div>
-
-                            <div class="pets_card">
-                                <img src="../../assets/images/pets/pets-sophia.png" alt="Pets Sophia" class="pets_card-image">
-                                <div class="pets_card-content">
-                                    <h4 class="pets_card-title">
-                                        Sophia
-                                    </h4>
-                                    <button class="pets_card-button">Learn more</button>
-                                </div>
-                            </div>
-
-                            <div class="pets_card">
-                                <img src="../../assets/images/pets/pets-timmy.png" alt="Pets Timmy" class="pets_card-image">
-                                <div class="pets_card-content">
-                                    <h4 class="pets_card-title">
-                                        Timmy
-                                    </h4>
-                                    <button class="pets_card-button">Learn more</button>
-                                </div>
-                            </div>
-
-                            <div class="pets_card">
-                                <img src="../../assets/images/pets/pets-charly.png" alt="Pets Charly" class="pets_card-image">
-                                <div class="pets_card-content">
-                                    <h4 class="pets_card-title">
-                                        Charly
-                                    </h4>
-                                    <button class="pets_card-button">Learn more</button>
-                                </div>
-                            </div>
-
-                            <div class="pets_card">
-                                <img src="../../assets/images/pets/pets-scarlet.png" alt="Pets Scarlett" class="pets_card-image">
-                                <div class="pets_card-content">
-                                    <h4 class="pets_card-title">
-                                        Scarlett
-                                    </h4>
-                                    <button class="pets_card-button">Learn more</button>
-                                </div>
-                            </div>
-
-                            <div class="pets_card">
-                                <img src="../../assets/images/pets/pets-freddie.png" alt="Pets Freddie" class="pets_card-image">
-                                <div class="pets_card-content">
-                                    <h4 class="pets_card-title">
-                                        Freddie
-                                    </h4>
-                                    <button class="pets_card-button">Learn more</button>
-                                </div>
-                            </div>
-                            
-                        </div>
+                    <div class="friends__slider">
+                        <div class="friend__track"></div>
                     </div>
-                    <div class="pets_navigation">
-                        <button class="pets_navigation-button_inactive" disabled>
-                            <h4> &#60;&#60; </h4>
+
+                    <div class="friends__switches">
+                        <button class="friends__switch" disabled id="first">
+                            <svg width="25" height="11" viewBox="0 0 25 11" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.94687 10.7852L0.913671 6.08789V4.98438L9.94687 0.287109V1.625L2.43711 5.53125L9.94687 9.44727V10.7852ZM24.018 10.7852L14.9848 6.08789V4.98438L24.018 0.287109V1.625L16.5082 5.53125L24.018 9.44727V10.7852Z"
+                                    fill="inherit"
+                                />
+                            </svg>
                         </button>
-                        <button class="pets_navigation-button_inactive" disabled>
-                            <h4> &#60; </h4>
+
+                        <button class="friends__switch" disabled id="prev">
+                            <svg width="10" height="11" viewBox="0 0 10 11" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.98242 10.7852L0.949219 6.08789V4.98438L9.98242 0.287109V1.625L2.47266 5.53125L9.98242 9.44727V10.7852Z"
+                                    fill="inherit"
+                                />
+                            </svg>
                         </button>
-                        <button class="pets_navigation-button_active">1</button>
-                        <button class="pets_navigation-button_reverted">
-                            <h4> &#62; </h4>
+
+                        <button class="friends__switch friends__switch--number" id="current">1</button>
+
+                        <button class="friends__switch friends__switch--reverse" id="next">
+                            <svg width="10" height="11" viewBox="0 0 10 11" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.98242 10.7852L0.949219 6.08789V4.98438L9.98242 0.287109V1.625L2.47266 5.53125L9.98242 9.44727V10.7852Z"
+                                    fill="inherit"
+                                />
+                            </svg>
                         </button>
-                        <button class="pets_navigation-button_reverted">
-                            <h4> &#62;&#62; </h4>
+
+                        <button class="friends__switch friends__switch--reverse" id="last">
+                            <svg width="25" height="11" viewBox="0 0 25 11" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.94687 10.7852L0.913671 6.08789V4.98438L9.94687 0.287109V1.625L2.43711 5.53125L9.94687 9.44727V10.7852ZM24.018 10.7852L14.9848 6.08789V4.98438L24.018 0.287109V1.625L16.5082 5.53125L24.018 9.44727V10.7852Z"
+                                    fill="inherit"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="pets__blackout"></div>
+
+                    <div class="pets__popup">
+                        <div class="pets__popup__img">
+                            <img src="" alt="" />
+                        </div>
+
+                        <div class="pets__popup__content">
+                            <p class="pets__popup__name"></p>
+                            <p class="pets__popup__type"></p>
+                            <p class="pets__popup__description"></p>
+
+                            <ul class="pets__popup__info">
+                                <li><strong>Age:</strong> <span id="age"></span></li>
+                                <li><strong>Inoculations:</strong> <span id="inoculations"></span></li>
+                                <li><strong>Diseases:</strong> <span id="diseases"></span></li>
+                                <li><strong>Parasites:</strong> <span id="parasites"></span></li>
+                            </ul>
+                        </div>
+
+                        <button class="pets__close">
+                            <img src="../../assets/icons/close.svg" alt="Close icon" />
                         </button>
                     </div>
                 </div>
@@ -209,6 +187,6 @@
             </div>
         </div>
     </footer>
-    -->
+    <div class="overlay"></div>
 </body>
 </html>
