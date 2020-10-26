@@ -247,6 +247,9 @@ $blackout: rgba(41, 41, 41, 0.6);
 .header_burger-close_menu{
     display: none;
 }
+.toMainPage {
+    text-decoration: none;
+}
 
 .logo {
     display: flex;
@@ -298,6 +301,10 @@ $blackout: rgba(41, 41, 41, 0.6);
         color: $color-dark-3xl;
     }
 
+    & ul li:nth-child(2) a:nth-child(2){
+        color: $color-dark-3xl;
+    }
+
     & ul li:hover {
         border-bottom: 3px $color-primary-color solid;
     }
@@ -308,7 +315,7 @@ $blackout: rgba(41, 41, 41, 0.6);
     }
     & ul li a:not(.activate):hover {  
         cursor: default; 
-        color: $color-dark-s;
+        color: $color-dark-l;
     }
 
     & ul li:nth-child(3):hover {

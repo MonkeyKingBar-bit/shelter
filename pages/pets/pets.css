@@ -68,6 +68,10 @@
   display: none;
 }
 
+.toMainPage {
+  text-decoration: none;
+}
+
 .logo {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -149,6 +153,10 @@
   color: #292929;
 }
 
+.navbar ul li:nth-child(2) a:nth-child(2) {
+  color: #292929;
+}
+
 .navbar ul li:hover {
   border-bottom: 3px #F1CDB3 solid;
 }
@@ -160,7 +168,7 @@
 
 .navbar ul li a:not(.activate):hover {
   cursor: default;
-  color: #CDCDCD;
+  color: #545454;
 }
 
 .navbar ul li:nth-child(3):hover {

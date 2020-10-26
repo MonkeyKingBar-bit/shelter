@@ -159,6 +159,7 @@
 
 .navbar ul li a:not(.activate):hover {
   cursor: default;
+  color: #CDCDCD;
 }
 
 .navbar ul li:nth-child(3):hover {
@@ -352,7 +353,7 @@
   background-color: #F6F6F6;
 }
 
-.pest__inner {
+.pets_inner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

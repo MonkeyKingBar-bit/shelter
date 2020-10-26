@@ -324,7 +324,7 @@ $blackout: rgba(41, 41, 41, 0.6);
 
     & ul li a:not(.activate):hover {  
         cursor: default; 
-        
+        color: $color-dark-s;
     }
 
     & ul li:nth-child(3):hover {
@@ -449,7 +449,7 @@ $blackout: rgba(41, 41, 41, 0.6);
     background-color: $color-light-l;
 }
 
-.pest__inner {
+.pets_inner {
     display: flex;
     flex-direction: column;
     align-items: center;
